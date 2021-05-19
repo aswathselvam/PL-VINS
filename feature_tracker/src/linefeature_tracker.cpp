@@ -290,7 +290,7 @@ void visualize_line_match(Mat imageMat1, Mat imageMat2,
     /* plot matches */
     // cv::cvtColor(imageMat2, img2, cv::COLOR_GRAY2BGR);
 
-    namedWindow("LSD matches", CV_WINDOW_NORMAL);
+    namedWindow("LSD matches", cv::WINDOW_NORMAL);
     imshow( "LSD matches", lsd_outImg );
     string name = to_string(frame_num);
     string path = "/home/dragon/ros_ws/p_ws/src/PL-VIO/feature_tracker/src/image/";
@@ -298,7 +298,7 @@ void visualize_line_match(Mat imageMat1, Mat imageMat2,
     frame_num ++;
     imwrite(name, lsd_outImg);
     // namedWindow("LSD matches1", CV_WINDOW_NORMAL);
-    namedWindow("LSD matches2", CV_WINDOW_NORMAL);
+    namedWindow("LSD matches2", cv::WINDOW_NORMAL);
     // imshow("LSD matches1", img1);
     imshow("LSD matches2", img2);
     waitKey(1);
@@ -357,8 +357,8 @@ void visualize_line_match(Mat imageMat1, Mat imageMat2,
 
     imshow( "LSD matches", lsd_outImg );
     */
-   namedWindow("LSD matches1", CV_WINDOW_NORMAL);
-   namedWindow("LSD matches2", CV_WINDOW_NORMAL);
+   namedWindow("LSD matches1", cv::WINDOW_NORMAL);
+   namedWindow("LSD matches2", cv::WINDOW_NORMAL);
     imshow("LSD matches1", img1);
     imshow("LSD matches2", img2);
     waitKey(1);
@@ -414,7 +414,7 @@ void LineFeatureTracker::readImage(const cv::Mat &_img)
     TicToc t_p;
     frame_cnt++;
 
-    cv::remap(_img, img, undist_map1_, undist_map2_, CV_INTER_LINEAR);
+    cv::remap(_img, img, undist_map1_, undist_map2_, cv::INTER_LINEAR);
 
 
 
