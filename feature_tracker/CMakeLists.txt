@@ -13,8 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
     camera_model
     message_filters
     )
-Set(OpenCV_DIR "/home/healer/Downloads/opencv3.2/opencv-3.2.0/build") # important find opencv version
-find_package(OpenCV 3.2 QUIET)
+find_package(OpenCV 4.4.0 REQUIRED)
 
 catkin_package()
 
@@ -28,7 +27,7 @@ include_directories(
     src/line_descriptor/include
   ${catkin_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIR}
-  /home/healer/catkin_PLVINS/src/PL-VINS/feature_tracker/src/line_descriptor/include # find LSD 
+  ~/catkin_plvins/src/PL-VINS/feature_tracker/src/line_descriptor/include # find LSD 
 ) 
 
 add_executable(feature_tracker
