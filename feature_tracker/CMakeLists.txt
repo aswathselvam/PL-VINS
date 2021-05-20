@@ -59,5 +59,5 @@ add_executable(LineFeature_tracker
 target_link_libraries(LineFeature_tracker 
 ${catkin_LIBRARIES} 
 ${OpenCV_LIBS}
-/home/healer/catkin_PLVINS/src/PL-VINS/feature_tracker/src/line_descriptor/lib/liblinedesc.so  # line feature
+~/catkin_plvins/src/PL-VINS/feature_tracker/src/line_descriptor/lib/liblinedesc.so  # line feature
 )
