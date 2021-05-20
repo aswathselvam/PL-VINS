@@ -40,6 +40,9 @@
  //M*/
 
 #include "precomp_custom.hpp"
+#include <opencv2/ximgproc.hpp>
+#include <opencv2/line_descriptor/descriptor.hpp>
+using namespace cv::ximgproc;
 
 //using namespace cv;
 namespace cv
@@ -146,7 +149,8 @@ void LSDDetectorC::detectImpl( const Mat& imageSrc, std::vector<KeyLine>& keylin
   lsd->computeGaussianPyramid( image, numOctaves, scale );
 
   /* create an LSD extractor */
-  cv::Ptr<cv::LineSegmentDetector> ls = cv::createLineSegmentDetector();
+  //cv::Ptr<cv::LineSegmentDetector> ls = cv::createLineSegmentDetector();
+  cv::Ptr<cv::ximgproc::FastLineDetector> ls = cv::ximgproc::createFastLineDetector();
 
   /* prepare a vector to host extracted segments */
   std::vector<std::vector<cv::Vec4f> > lines_lsd;
@@ -242,14 +246,7 @@ void LSDDetectorC::detectImpl( const Mat& imageSrc, std::vector<KeyLine>& keylin
   lsd->computeGaussianPyramid( image, numOctaves, scale );
 
   /* create an LSD extractor */
-  cv::Ptr<cv::LineSegmentDetector> ls = cv::createLineSegmentDetector( opts.refine,
-                                                                       opts.scale,
-                                                                       opts.sigma_scale,
-                                                                       opts.quant,
-                                                                       opts.ang_th,
-                                                                       opts.log_eps,
-                                                                       opts.density_th,
-                                                                       opts.n_bins);
+  cv::Ptr<cv::ximgproc::FastLineDetector> ls = cv::ximgproc::createFastLineDetector();
 
   /* prepare a vector to host extracted segments */
   std::vector<std::vector<cv::Vec4f> > lines_lsd;
@@ -350,14 +347,7 @@ void LSDDetectorC::detectImplFast( const Mat& imageSrc, std::vector<KeyLine>& ke
   lsd->computeGaussianPyramid( image, numOctaves, scale );
 
   /* create an LSD extractor */
-  cv::Ptr<cv::LineSegmentDetector> ls = cv::createLineSegmentDetector( opts.refine,
-                                                                       opts.scale,
-                                                                       opts.sigma_scale,
-                                                                       opts.quant,
-                                                                       opts.ang_th,
-                                                                       opts.log_eps,
-                                                                       opts.density_th,
-                                                                       opts.n_bins);
+  cv::Ptr<cv::ximgproc::FastLineDetector> ls = cv::ximgproc::createFastLineDetector( );
 
   /* prepare a vector to host extracted segments */
   std::vector<std::vector<cv::Vec4f> > lines_lsd;
