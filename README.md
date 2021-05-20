@@ -48,12 +48,20 @@ Download [EuRoC MAV Dataset](http://projects.asl.ethz.ch/datasets/doku.php?id=km
 run in the ~/catkin_plvins/
 ```
 	roslaunch plvins_estimator plvins_show_linepoint.launch
-	rosbag play YOUR_PATH_TO_DATASET/MH_05_difficult.bag
+	roslaunch ~/catkin_plvins/src/PL-VINS/vins_estimator/launch/plvins-show-linepoint.launch
 ```
 or 
 ```
 roslaunch plvins_estimator euroc_fix_extrinsic.launch        #This launch runs without loop
 ```
+
+Stream images:
+```
+	roslaunch camera_publisher publisher.launch
+	rosbag play ~/Downloads/V1_02_medium.bag
+```
+
+
 
 Now you should be able to run PL-VINS in the ROS RViZ. 
 
